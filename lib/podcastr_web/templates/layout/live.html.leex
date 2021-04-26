@@ -6,6 +6,13 @@
   <p class="alert alert-danger" role="alert"
     phx-click="lv:clear-flash"
     phx-value-key="error"><%= live_flash(@flash, :error) %></p>
-
-  <%= @inner_content %>
+  <div class="wrapper">
+    <main>
+      <%= live_component @socket, PodcastrWeb.Components.Header %>
+      <div>
+        <%= @inner_content %>
+      </div>
+    </main>
+    <%= live_component @socket, PodcastrWeb.Components.Player %>
+  </div>
 </main>

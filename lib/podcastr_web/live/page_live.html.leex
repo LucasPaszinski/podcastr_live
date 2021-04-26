@@ -1,9 +1,11 @@
-<div class="wrapper">
-  <main>
-    <%= live_component @socket, Header %>
-    <div>
-      <h1>Page Content</h1>
-    </div>
-  </main>
-  <%= live_component @socket, Player %>
+<div class="homepage">
+    <section class="latest_episodes">
+        <h2>Últimos lançamentos</h2>
+        <ul>
+            <%= for latest_episode <- @latest_episodes do %>
+                <%= live_component @socket, PodcastrWeb.Components.PodcastCard, episode: latest_episode %>
+
+            <% end %>
+        </ul>
+    </section>
 </div>

@@ -2,10 +2,19 @@ defmodule PodcastrWeb.PageLive do
   use PodcastrWeb, :live_view
 
   alias PodcastrWeb.Components.{Player, Header}
+  alias Podcastr.Episode
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, query: "")}
+    case Episode.list_episodes() do
+      [latest_episode1, latest_episode2 | episodes] ->
+        latest_eps = [latest_episode1, latest_episode2]
+        IO.inspect(latest_eps)
+        {:ok, assign(socket, latest_episodes: latest_eps, episodes: episodes)}
+
+      otherwise ->
+        {:ok, latest_episodes: otherwise, episodes: []}
+    end
   end
 
   @impl true

@@ -20,10 +20,11 @@ defmodule PodcastrWeb.Router do
     live "/", PageLive, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PodcastrWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", PodcastrWeb do
+    pipe_through :api
+
+    post "/episodes", EpisodeController, :create
+  end
 
   # Enables LiveDashboard only for development
   #
