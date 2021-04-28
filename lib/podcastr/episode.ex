@@ -9,7 +9,7 @@ defmodule Podcastr.Episode do
   alias Podcastr.Episode.{File, Podcast}
 
   def list_episodes do
-    Repo.all(from p in Podcast, preload: [file: p])
+    Repo.all(from p in Podcast, preload: [:file])
   end
 
   def create_episodes(episodes_params) do
@@ -150,6 +150,13 @@ defmodule Podcastr.Episode do
 
   """
   def get_podcast!(id), do: Repo.get!(Podcast, id)
+
+  def get_podcast_by_slug_url!(slug) do
+    case Repo.get_by(Podcast, url: slug) do
+      nil -> nil
+      %Podcast{} = podcast -> Repo.preload(podcast, :file)
+    end
+  end
 
   @doc """
   Creates a podcast.

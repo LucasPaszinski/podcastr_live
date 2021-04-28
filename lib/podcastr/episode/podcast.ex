@@ -2,7 +2,7 @@ defmodule Podcastr.Episode.Podcast do
   use Ecto.Schema
   import Ecto.Changeset
 
-  Podcastr.Episode.File
+  alias Podcastr.Episode.File
 
   schema "podcasts" do
     field :members, :string

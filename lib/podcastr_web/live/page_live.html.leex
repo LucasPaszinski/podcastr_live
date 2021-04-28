@@ -1,5 +1,5 @@
 <div class="homepage">
-    <section class="latest_episodes">
+    <section class="latest-episodes">
         <h2>Últimos lançamentos</h2>
         <ul>
             <%= for latest_episode <- @latest_episodes do %>
@@ -7,5 +7,10 @@
 
             <% end %>
         </ul>
+    </section>
+
+    <section class="all-episodes">
+        <h2>Todos Episódios</h2>
+        <%= live_component @socket, PodcastrWeb.Components.PodcastTable, episodes: @episodes %>
     </section>
 </div>

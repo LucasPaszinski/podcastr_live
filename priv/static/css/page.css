@@ -5,3 +5,37 @@ div .wrapper {
 .wrapper main {
     flex: 1;
 }
+
+.homepage {
+    padding   : 0 4rem;
+    height    : calc(100vh - 6.5rem);
+    overflow-y: scroll;
+}
+
+.homepage h2 {
+    margin-top   : 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.latest-episodes ul {
+    list-style           : none;
+    display              : grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap                  : 1.5rem
+}
+
+.latest-episodes li {
+    background   : var(--white);
+    border       : 1px solid var(--gray-100);
+    padding      : 1.25rem;
+    border-radius: 1.5rem;
+    position     : relative;
+    overflow     : auto;
+    display      : flex;
+    align-items  : center;
+}
+
+.all-episodes {
+    padding-bottom: 2rem;
+
+}

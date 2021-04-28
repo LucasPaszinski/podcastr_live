@@ -18,6 +18,7 @@ defmodule PodcastrWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+    live "/episodes/:slug", EpisodeLive, :show
   end
 
   scope "/api", PodcastrWeb do

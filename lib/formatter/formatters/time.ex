@@ -8,16 +8,19 @@ defmodule Formatter.Time do
   defp hours(seconds) do
     seconds
     |> div(3600)
+    |> Integer.to_string()
   end
 
   defp minutes(seconds) do
     seconds
     |> rem(3600)
     |> div(60)
+    |> Integer.to_string()
   end
 
   defp seconds(seconds) do
     seconds
     |> rem(60)
+    |> Integer.to_string()
   end
 end
