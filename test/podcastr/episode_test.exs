@@ -69,8 +69,20 @@ defmodule Podcastr.EpisodeTest do
   describe "podcasts" do
     alias Podcastr.Episode.Podcast
 
-    @valid_attrs %{members: "some members", published_at: ~N[2010-04-17 14:00:00], thumbnail: "some thumbnail", title: "some title", url: "some url"}
-    @update_attrs %{members: "some updated members", published_at: ~N[2011-05-18 15:01:01], thumbnail: "some updated thumbnail", title: "some updated title", url: "some updated url"}
+    @valid_attrs %{
+      members: "some members",
+      published_at: ~N[2010-04-17 14:00:00],
+      thumbnail: "some thumbnail",
+      title: "some title",
+      url: "some url"
+    }
+    @update_attrs %{
+      members: "some updated members",
+      published_at: ~N[2011-05-18 15:01:01],
+      thumbnail: "some updated thumbnail",
+      title: "some updated title",
+      url: "some updated url"
+    }
     @invalid_attrs %{members: nil, published_at: nil, thumbnail: nil, title: nil, url: nil}
 
     def podcast_fixture(attrs \\ %{}) do

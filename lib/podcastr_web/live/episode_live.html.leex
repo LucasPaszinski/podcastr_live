@@ -1,1 +1,33 @@
-<h1> Episodio <%= @episode.title %> </h1>
+<%= if @episode != nil do %>
+    <div>
+    <h1>
+        <%= @episode.title %>
+    </h1>
+    <h1>
+        <%= @episode.members %>
+    </h1>
+    <h1>
+        <%= @episode.published_at %>
+    </h1>
+    <h1>
+        <%= @episode.thumbnail %>
+    </h1>
+    <h1>
+        <%= @episode.title %>
+    </h1>
+    <h1>
+        <%= @episode.url %>
+    </h1>
+    <h1>
+        <%= @episode.file.duration %>
+    </h1>
+    <h1>
+        <%= @episode.file.type %>
+    </h1>
+    <h1>
+        <%= @episode.file.url %>
+    </h1>
+</div>
+<%= else %>
+    <div>Not Found!</div>
+<% end %>

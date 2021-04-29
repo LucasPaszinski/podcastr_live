@@ -11,11 +11,13 @@ defmodule PodcastrWeb.PodcastView do
   end
 
   def render("podcast.json", %{podcast: podcast}) do
-    %{id: podcast.id,
+    %{
+      id: podcast.id,
       title: podcast.title,
       url: podcast.url,
       members: podcast.members,
       published_at: podcast.published_at,
-      thumbnail: podcast.thumbnail}
+      thumbnail: podcast.thumbnail
+    }
   end
 end

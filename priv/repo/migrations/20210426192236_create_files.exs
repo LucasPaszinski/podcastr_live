@@ -9,6 +9,5 @@ defmodule Podcastr.Repo.Migrations.CreateFiles do
 
       timestamps()
     end
-
   end
 end

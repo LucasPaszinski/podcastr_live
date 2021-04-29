@@ -151,7 +151,7 @@ defmodule Podcastr.Episode do
   """
   def get_podcast!(id), do: Repo.get!(Podcast, id)
 
-  def get_podcast_by_slug_url!(slug) do
+  def get_podcast_by_slug_url(slug) do
     case Repo.get_by(Podcast, url: slug) do
       nil -> nil
       %Podcast{} = podcast -> Repo.preload(podcast, :file)

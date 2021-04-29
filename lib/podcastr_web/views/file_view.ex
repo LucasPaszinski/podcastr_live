@@ -11,9 +11,6 @@ defmodule PodcastrWeb.FileView do
   end
 
   def render("file.json", %{file: file}) do
-    %{id: file.id,
-      url: file.url,
-      type: file.type,
-      duration: file.duration}
+    %{id: file.id, url: file.url, type: file.type, duration: file.duration}
   end
 end
