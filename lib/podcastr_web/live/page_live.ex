@@ -19,7 +19,7 @@ defmodule PodcastrWeb.PageLive do
   def handle_event("episode-info", %{"slug" => slug}, socket) do
     redirect_socket =
       socket
-      |> redirect(to: "/episodes/#{slug}")
+      |> push_redirect(to: "/episodes/#{slug}")
 
     {:noreply, redirect_socket}
   end

@@ -1,3 +1,46 @@
+.all-episodes table td {
+    font-size: 0.875rem
+}
+
+.all-episodes table td img {
+    width        : 3rem;
+    height       : 3rem;
+    border-radius: 0.5rem;
+
+}
+
+.all-episodes table td a {
+    color          : var(--gray-800);
+    font-family    : Lexend, sans-serif;
+    font-weight    : 600;
+    text-decoration: none;
+    line-height    : 1.4rem;
+    font-size      : 1rem;
+}
+
+.all-episodes table td a:hover {
+    text-decoration: underline;
+    cursor         : pointer;
+}
+
+.all-episodes table td button {
+    width        : 2rem;
+    height       : 2rem;
+    background   : var(--white);
+    border       : 1px solid var(--gray-100);
+    border-radius: 0.5rem;
+    font-size    : 0;
+}
+
+.all-episodes table td button img {
+    width : 1.25rem;
+    height: 1.25rem;
+}
+
+.all-episodes table td button:hover {
+    filter: brightness(0.9);
+}
+
 .column-date {
     width: 7rem
 }

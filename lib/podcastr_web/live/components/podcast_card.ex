@@ -11,7 +11,11 @@ defmodule PodcastrWeb.Components.PodcastCard do
         <img class="banner" width="192" height="192" src="<%= @episode.thumbnail %>" />
 
         <div class="episode-details">
-          <a href="<%= PodcastrWeb.Endpoint.url() <> @episode.url %>" phx-click="episode-info" phx-value-slug="<%= @episode.url %>"><%= @episode.title %> </a>
+          <a
+            phx-click="episode-info"
+            phx-value-slug="<%= @episode.url %>">
+              <%= @episode.title %>
+          </a>
           <p> <%= @episode.members %></p>
           <span><%= format_published_at(@episode.published_at) %> </span>
           <span><%= seconds_to_podcast_time(@episode.file.duration) %> </span>

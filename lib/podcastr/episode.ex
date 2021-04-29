@@ -16,13 +16,13 @@ defmodule Podcastr.Episode do
     Repo.transaction(fn ->
       for episode_params <- episodes_params do
         with file_params <- episode_params["file"],
-             {:ok, %File{id: file_id}} = file <- create_file(file_params),
+             {:ok, %File{id: file_id}} <- create_file(file_params),
              podcast_params <-
                episode_params |> Map.put("file_id", file_id) |> Map.delete("file"),
              {:ok, %Podcast{} = podcast} <- create_podcast(podcast_params) do
           podcast
         else
-          _ -> Repo.rollback()
+          _ -> Repo.rollback(:error)
         end
       end
     end)

@@ -10,7 +10,11 @@ defmodule PodcastrWeb.Components.PodcastTableRow do
           <img width=120 height=120 src="<%= @episode.thumbnail %>" alt="<%= @episode.title %>" object-fit="cover"/>
         </td>
         <td>
-          <a href="<%= PodcastrWeb.Endpoint.url() <> @episode.url %>" phx-click="episode-info" phx-value-slug="<%= @episode.url %>"><%= @episode.title %></a>
+          <a
+            phx-click="episode-info"
+            phx-value-slug="<%= @episode.url %>">
+              <%= @episode.title %>
+          </a>
         </td>
         <td>
           <%= @episode.members %>
