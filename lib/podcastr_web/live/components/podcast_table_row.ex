@@ -11,6 +11,8 @@ defmodule PodcastrWeb.Components.PodcastTableRow do
         </td>
         <td>
           <a
+            href="<%= Routes.episode_path(@socket, :show, @episode.url) %>"
+            onclick="event.preventDefault()"
             phx-click="episode-info"
             phx-value-slug="<%= @episode.url %>">
               <%= @episode.title %>

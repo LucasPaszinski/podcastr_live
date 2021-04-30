@@ -2,6 +2,7 @@ defmodule PodcastrWeb.PageLive do
   use PodcastrWeb, :live_view
 
   alias Podcastr.Episode
+  alias PodcastrWeb.Components.{PodcastCard, PodcastTable}
 
   @impl true
   def mount(_params, _session, socket) do
