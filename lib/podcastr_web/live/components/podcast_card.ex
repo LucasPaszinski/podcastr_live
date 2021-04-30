@@ -12,6 +12,14 @@ defmodule PodcastrWeb.Components.PodcastCard do
 
         <div class="episode-details">
           <a
+            onclick="
+            console.log({event})
+            //if (event.which !== 2)
+            //console.log('Yeah')
+              event.preventDefault();
+            //}
+            "
+            href="<%= Routes.episode_path(@socket, :show, @episode.url) %>"
             phx-click="episode-info"
             phx-value-slug="<%= @episode.url %>"
             phx-value-episode="<%= @episode.id %>">

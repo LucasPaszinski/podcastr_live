@@ -4,7 +4,7 @@ defmodule PodcastrWeb.PageLive do
   alias Podcastr.Episode
 
   @impl true
-  def mount(_params, session, socket) do
+  def mount(_params, _session, socket) do
     case Episode.list_episodes() do
       [latest_episode1, latest_episode2 | episodes] ->
         latest_eps = [latest_episode1, latest_episode2]
