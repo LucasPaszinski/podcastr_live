@@ -14,9 +14,10 @@ defmodule Podcastr.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Podcastr.PubSub},
       # Start the Endpoint (http/https)
-      PodcastrWeb.Endpoint
-      # Start a worker by calling: Podcastr.Worker.start_link(arg)
-      # {Podcastr.Worker, arg}
+      PodcastrWeb.Endpoint,
+      # You can add other caches here
+      {Podcastr.Cache, name: Podcastr.Episode}
+      # {Podcastr.Cache, name: Podcastr.Podcast}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

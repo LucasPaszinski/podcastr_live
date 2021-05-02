@@ -4,12 +4,19 @@ defmodule Podcastr.Episode do
   """
 
   import Ecto.Query, warn: false
-  alias Podcastr.Repo
+  alias Podcastr.{Repo, Cache}
 
   alias Podcastr.Episode.{File, Podcast}
 
   def list_episodes do
-    Repo.all(from p in Podcast, preload: [:file])
+    case Cache.read(__MODULE__, :list_episodes) do
+      {:ok, value} ->
+        value
+
+      {:error, _msg} ->
+        episodes = Repo.all(from p in Podcast, preload: [:file])
+        Cache.write(__MODULE__, :list_episodes, episodes)
+    end
   end
 
   def create_episodes(episodes_params) do
@@ -152,6 +159,13 @@ defmodule Podcastr.Episode do
   def get_podcast!(id), do: Repo.get!(Podcast, id)
 
   def get_podcast_by_slug_url(slug) do
+    case Cache.read(__MODULE__, :list_episodes) do
+      {:error, _msg} -> get_podcast_by_slug_url_repo(slug)
+      {:ok, episodes} -> Enum.find(episodes, &(&1.url == slug))
+    end
+  end
+
+  defp get_podcast_by_slug_url_repo(slug) do
     case Repo.get_by(Podcast, url: slug) do
       nil -> nil
       %Podcast{} = podcast -> Repo.preload(podcast, :file)
