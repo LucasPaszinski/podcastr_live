@@ -8,6 +8,7 @@ defmodule Podcastr.Repo.Migrations.CreatePodcasts do
       add :members, :string
       add :published_at, :naive_datetime
       add :thumbnail, :string
+      add :description, :text
       add :file_id, references(:files, on_delete: :delete_all)
 
       timestamps()

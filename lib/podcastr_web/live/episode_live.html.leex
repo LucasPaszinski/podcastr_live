@@ -1,33 +1,26 @@
 <%= if @episode != nil do %>
-    <div>
-    <h1>
-        <%= @episode.title %>
-    </h1>
-    <h1>
-        <%= @episode.members %>
-    </h1>
-    <h1>
-        <%= @episode.published_at %>
-    </h1>
-    <h1>
-        <%= @episode.thumbnail %>
-    </h1>
-    <h1>
-        <%= @episode.title %>
-    </h1>
-    <h1>
-        <%= @episode.url %>
-    </h1>
-    <h1>
-        <%= @episode.file.duration %>
-    </h1>
-    <h1>
-        <%= @episode.file.type %>
-    </h1>
-    <h1>
-        <%= @episode.file.url %>
-    </h1>
-</div>
+    <div class="episode">
+        <div class="thumbnail-container">
+            <button phx-click="back" class="back">
+                <img src="/images/arrow-left.svg" alt="Voltar"/>
+            </button>
+            <img width=700 height=160 src="<%= @episode.thumbnail %>"/>
+            <button class="play">
+                <img src="/images/play.svg" alt="Tocar Episódio" />
+            </button>
+        </div>
+
+        <header>
+            <h1><%= @episode.title %></h1>
+            <span><%= @episode.members %></span>
+            <span><%= @episode.published_at %></span>
+            <span><%= @episode.file.duration %>
+        </header>
+
+        <div class="description">
+           <%= raw @episode.description %>
+        </div>
+    </div>
 <%= else %>
     <div>Not Found!</div>
 <% end %>

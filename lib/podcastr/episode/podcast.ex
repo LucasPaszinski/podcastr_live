@@ -7,6 +7,7 @@ defmodule Podcastr.Episode.Podcast do
   schema "podcasts" do
     field :members, :string
     field :published_at, :naive_datetime
+    field :description, :string
     field :thumbnail, :string
     field :title, :string
     field :url, :string
@@ -18,8 +19,8 @@ defmodule Podcastr.Episode.Podcast do
   @doc false
   def changeset(podcast, attrs) do
     podcast
-    |> cast(attrs, [:title, :url, :members, :published_at, :thumbnail, :file_id])
-    |> validate_required([:title, :url, :members, :published_at, :thumbnail])
+    |> cast(attrs, [:title, :url, :description, :members, :published_at, :thumbnail, :file_id])
+    |> validate_required([:title, :url, :description, :members, :published_at, :thumbnail])
     |> assoc_constraint(:file)
   end
 end
